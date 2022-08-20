@@ -1,7 +1,8 @@
 import UIKit
+import Foundation
 //+1 Напишите переменные и константы всех базовых типов данных: int, UInt, float, double, string. У чисел вывести их минимальные и максимальные значения. //
-let integer1: Int
-var integer2: Int
+let integer1: Int = 2
+var integer2: Int = 3
 Int.max
 Int.min
 Int8.max
@@ -13,8 +14,8 @@ Int32.min
 Int64.max
 Int64.max
 
-let UInt1: UInt
-var UInt2: UInt
+let UInt1: UInt = 23
+var UInt2: UInt = 45
 UInt.min
 UInt.max
 UInt8.max
@@ -26,24 +27,27 @@ UInt32.min
 UInt64.max
 UInt64.min
 
-let float1: Float
-var float2: Float
+let float1: Float = 4.567894
+var float2: Float = 4.567890
 let maxFloat = Float.greatestFiniteMagnitude
 let minFloat = Float.leastNormalMagnitude
 
-let double1: Double
-var double2: Double
+let double1: Double = 2.3456
+var double2: Double = 2.34556
 let maxDouble = Double.greatestFiniteMagnitude
 let minDouble = Double.leastNormalMagnitude
 
-let string1: String
-var string2: String
+let string1: String = "String 1"
+var string2: String = "String 2"
 
 //2) Создайте список товаров с различными характеристиками (количество, название). Используйте typealias.
-let good1: (Int, String) = (2, "apple")
-let good2: (Int, String) = (3, "kiwi")
-let good3: (Int, String) = (4, "pineapple")
-let good4: (Int, String) = (5, "banana")
+typealias Name = String
+typealias Amount = Int
+typealias Good = (Amount, Name)
+let good1: Good = (2, "apple")
+let good2: Good = (3, "kiwi")
+let good3: Good = (4, "pineapple")
+let good4: Good = (5, "banana")
 
 //+3) Напишите различные выражения с приведением типа.
 let num1: Int = 3
@@ -78,11 +82,9 @@ let fahrenheit: Double = 45.5
 let celcius = (fahrenheit - 32) / 1.8
 
 // +7) A circle is made up of 2𝜋 radians, corresponding with 360 degrees. Declare a constant degrees of type Double and assign it an initial value. Calculate the corresponding angle in radians and store the result in a constant named radians.
-// 2 * pi =  360
 
 let degrees: Double = 23
-let pi: Double = 3.1415926
-let radians: Double = (2 * pi) / 360
+let radians: Double = (degrees * 2 * Double.pi) / 360
 print(radians)
 /*
 +8) Declare four constants named x1, y1, x2 and y2 of type Double. These constants represent the 2-dimensional coordinates of two points. Calculate the distance between these two points and store the result in a constant named distance.
@@ -109,7 +111,7 @@ print("\(name) \(sername) \(age) \(address) \(hobby)")
 +3) Напишите 10 строк, соберите их с помощью интерполяции и поставьте в нужных местах переносы на новую строку и пробелы (см. \n и \t).
 */
 print("task3")
-print("\n \(name) \t \(sername) \t \(age) \t \(address) \t \(hobby) \t \(name) \t \(sername) \t \(age) \t \(address) \t \(hobby)")
+print("\n\(name)\t\(sername)\t\(age)\t\(address)\t\(hobby)\t\(name)\t\(sername)\t\(age)\t\(address)\t\(hobby)")
 /*
 +4) Разбейте собственное имя на символы, перенося каждую букву на новую строку.
 */
@@ -143,7 +145,6 @@ let (ElementOne, ElementTwo, ElementThree, ElementFour, ElementFive) = infoAbout
 
 print(infoAboutAnna)
 print("Hello, my name is \(infoAboutAnna.0), my sername is \(infoAboutAnna.1). I'm \(infoAboutAnna.2) years old. I live in \(infoAboutAnna.3). My hobby is \(infoAboutAnna.4)")
-print("\(infoAboutAnna.0), \(infoAboutAnna.1), \(infoAboutAnna.2), \(infoAboutAnna.3), \(infoAboutAnna.4)")
 print(ElementOne, ElementTwo, ElementThree, ElementFour, ElementFive)
 /*
 +2) Давайте представим, что мы сотрудник ГАИ и у нас есть какое-то количество нарушителей. Задача. Создать кортеж с тремя параметрами:
@@ -152,19 +153,27 @@ print(ElementOne, ElementTwo, ElementThree, ElementFour, ElementFive)
 - третий - бесправники: количество пойманных.
 Распечатайте наших бедокуров в консоль через print().
 */
-let bedoqureOne: (Int, Int, Int) = (overSpeed: 10, drunkDriving: 23, lawless: 56)
+let bedoqureOne = (overSpeed: 10, drunkDriving: 23, lawless: 56)
 let (Element1, Element2, Element3) = bedoqureOne
 print("overSpeed: \(bedoqureOne.0), drunkDriving: \(bedoqureOne.1), lawless: \(bedoqureOne.2)")
 /*
 +3) Выведите каждый параметр в консоль. Тремя способами.
 */
 print(bedoqureOne.0)
+print(Element1)
+print(bedoqureOne.overSpeed)
+
+print(bedoqureOne.1)
 print(Element2)
-print(bedoqureOne.self.2)
+print(bedoqureOne.drunkDriving)
+
+print(bedoqureOne.2)
+print(Element3)
+print(bedoqureOne.lawless)
 /*
 +4) Создайте второй кортеж — нашего напарника. Значения задайте другие.
 */
-let bedoqureTwo: (Int, Int, Int) = (overSpeed: 34, drunkDriving: 14, lawless: 67)
+let bedoqureTwo = (overSpeed: 34, drunkDriving: 14, lawless: 67)
 /*
 +5) Пусть напарники соревнуются: создайте третий кортеж, который содержит в себе разницу между первым и вторым.
 */
@@ -172,19 +181,17 @@ let differenceBetweenMates: (Int, Int, Int) = (overoverSpeed: bedoqureOne.0 - be
 /*
 +6) Declare a constant tuple that contains three Int values followed by a Double. Use this to represent a date (month, day, year) followed by an average temperature for that date.
 */
-let date: (Int, Int, Int) = (11, 08, 2022)
-var temprature: Double = 23
+let tuple: (Int, Int, Int, Double) = (11, 08, 2022, 23.45)
 /*
    + 7) Change the tuple to name the constituent components. Give them names related to the data that they contain: month, day, year and averageTemperature.
 */
-var changedTuple: (Int, Int, Int, Double) = (day: date.0, month: date.1, year: date.2, averageTemperature: temprature)
+var changedTuple = (day: tuple.0, month: tuple.1, year: tuple.2, averageTemperature: tuple.3)
 /*
     +8) In one line, read the day and average temperature values into two constants. You’ll need to employ the underscore to ignore the month and year.
 */
-print("Day is \(changedTuple.0), _, _, averageTemperature is \(changedTuple.3)")
+let (Element81, _, _, Element84) = changedTuple
 /*
     +9) Up until now, you’ve only seen constant tuples. But you can create variable tuples, too. Change the tuple you created in the exercises above to a variable by using var instead of let. Now change the average temperature to a new value.
 */
-temprature = 21.5
-changedTuple = (day: date.0, month: date.1, year: date.2, averageTemperature: temprature)
+changedTuple.averageTemperature = 17.87
 print(changedTuple)
