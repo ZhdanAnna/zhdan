@@ -66,9 +66,9 @@ let division = Double(operand1) / Double(operand2)
 let addition = operand1 + operand2
 let subtraction = operand1 - operand2
 
-print ("\(operand1) * \(operand2) = \(multiplication)")
-print ("\(operand1) / \(operand2) = \(division)")
-print ("\(operand1) + \(operand2) = \(addition)")
+print("\(operand1) * \(operand2) = \(multiplication)")
+print("\(operand1) / \(operand2) = \(division)")
+print("\(operand1) + \(operand2) = \(addition)")
 print("\(operand1) - \(operand2) = \(subtraction)")
 
 
@@ -130,7 +130,7 @@ let lastName: String = sername
 /*
 +7) Create a string constant called fullName by adding the firstName and lastName constants together, separated by a space.
 */
-let fullName: String = "\(firstName)" + " " + "\(lastName)"
+let fullName: String = firstName + " " + lastName
 /*
 +8) Using interpolation, create a string constant called myDetails that uses the fullName constant to create a string introducing yourself. For example, my string would read: "Hello, my name is Matt Galloway.".
 */
