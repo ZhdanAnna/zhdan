@@ -5,9 +5,8 @@ import UIKit
  
 Create a variable named counter and set it equal to 0.
 Create a while loop with the condition counter < 10 which prints out counter is X (where X is replaced with counter value) and then increments counter by 1.
-
 */
-var counter: Int = 0
+var counter = 0
 while counter < 10 {
     print("Counter is \(counter)")
     counter += 1
@@ -21,14 +20,13 @@ Then increment counter by 1. Finally, print After X rolls, roll is Y where X is 
 Set the loop condition such that the loop finishes when the first 0 is rolled.
 
 */
-var counter1: Int = 0
-var roll: Int = 0
+var counter1 = 0
+var roll = 0
 repeat {
     roll = Int.random(in: 0...5)
+    print("\(counter1) is the value of counter and \(roll) is the value of roll")
     counter1 += 1
 } while roll != 0
-print("\(counter1) is the value of counter and \(roll) is the value of roll")
-
 
 /*
 +Task 3
@@ -36,7 +34,7 @@ print("\(counter1) is the value of counter and \(roll) is the value of roll")
 Create a constant named range, and set it equal to a range starting at 1 and ending with 10 inclusive.
 Write a for loop that iterates over this range and prints the square of each number.
 */
-let range: ClosedRange <Int> = 1...10
+let range = 1...10
 for number in range {
     print(number * number)
 }
@@ -73,12 +71,13 @@ Task 5
 
 Print a table of the first 10 powers of 2
 */
-let number: Int = 2
-let power: Int = 10
-var resultTask5: Int = 1
-for _ in 0..<power {
-    print(resultTask5)
+let number = 2
+var power = 0
+var resultTask5 = 1
+for _ in 0...10 {
+    print("Число \(number) в степени \(power) = \(resultTask5)")
     resultTask5 *= number
+    power += 1
 }
 
 /*
@@ -87,8 +86,8 @@ for _ in 0..<power {
 Given a number n, calculate the factorial of n.
 Example: 4 factorial is equal to 1 * 2 * 3 * 4
 */
-let n: Int = 6
-var factorial: Int = 1
+let n = 6
+var factorial = 1
 for i in 1...n {
     factorial *= i
 }
@@ -99,9 +98,9 @@ print(factorial)
 
 Given a number n, calculate the n-th Fibonacci number. (Recall Fibonacci is 1, 1, 2, 3, 5, 8, 13, ... Start with 1 and 1 and add these values together to get the next value. The next value is the sum of the previous two. So the next value in this case is 8+13 = 21.)
 */
-var firstValue: Int = 1
-var nextValue: Int = 0
-let count: Int = 8
+var firstValue = 1
+var nextValue = 0
+let count = 8
 for _ in 0..<count {
     let result = firstValue + nextValue
     firstValue = nextValue
@@ -128,25 +127,25 @@ case 40...60:
 default:
     print("Elderly")
 }
-var age: Int = 78
+let age = 78
 
 /*
 +Task 9
 
 Write a switch statement that takes a tuple containing a string and an integer. The string is a name, and the integer is an age. Use the same cases that you used in the previous exercise and let syntax to print out the name followed by the life stage. For example, for myself it would print out "Slava is an adult."
 */
-let name: String = "Anna"
-let ageOfPerson: Int = 5
+let name = "Anna"
+let ageOfPerson = 34
 switch (name, ageOfPerson) {
-case  ("Anna", 0...2):
+case  (name, 0...2):
     print("\(name) is an infant")
-case ("Anna", 3...12):
+case (name, 3...12):
     print("\(name) is a child")
-case ("Anna", 13...19):
+case (name, 13...19):
     print("\(name) is a teenager")
-case ("Anna", 20...39):
+case (name, 20...39):
     print("\(name) is an adult")
-case ("Anna", 40...60):
+case (name, 40...60):
     print("\(name) is a middle aged")
 default:
     print("\(name) is an elderly")
@@ -157,23 +156,23 @@ default:
 
 Create a constant called myAge and set it to your age. Then, create a constant named isTeenager that uses Boolean logic to determine if the age denotes someone in the age range of 13 to 19.
 */
-let myAge: Int = 13
-let isTeenager: Bool = myAge >= 13 && myAge <= 19 ? true : false
+let myAge = 13
+let isTeenager = myAge >= 13 && myAge <= 19 ? true : false
 print(isTeenager)
 
 /*
 +Task 11
 Create another constant named theirAge and set it to my age, which is 30. Then, create a constant named bothTeenagers that uses Boolean logic to determine if both you and I are teenagers.
 */
-let theirAge: Int = 30
-let bothTeenagers: Bool = myAge >= 13 && theirAge >= 13 && myAge <= 19 && theirAge <= 19 ? true : false
+let theirAge = 30
+let bothTeenagers = isTeenager && theirAge >= 13 && theirAge <= 19 ? true : false
 print(bothTeenagers)
 /*
 Task 12
 Create a constant named reader and set it to your name as a string. Create a constant named author and set it to my name, Matt Galloway. Create a constant named authorIsReader that uses string equality to determine if reader and author are equal.
 */
-let reader: String = "Anna"
-let author: String = "Matt Galloway"
+let reader = "Anna"
+let author = "Matt Galloway"
 let authorIsReader = reader == author
 /*
 Task 13
@@ -182,36 +181,34 @@ Task 13
 Распечатайте элементы, содержащие количество дней в соответствующем месяце, используя цикл for и этот массив.
 */
 
-let daysInMonth: [String] = ["January 31", "February 28", "March 31", "April 30", "May 31", "June 30", "July 31", "August 31", "September 30", "October 31", "November 30", "December 31"]
-var monthIndex: Int = 0
-for _ in monthIndex..<daysInMonth.count {
-    print(daysInMonth[monthIndex])
-    monthIndex += 1
+let daysInMonth = ["January 31", "February 28", "March 31", "April 30", "May 31", "June 30", "July 31", "August 31", "September 30", "October 31", "November 30", "December 31"]
+for month in daysInMonth {
+    print(month)
 }
 
 /*
 Task 14
 Создать в if и отдельно в switch программу которая будет смотреть на возраст человека и говорить куда ему идти в школу, в садик, в универ, на работу или на пенсию и тд.
 */
-let ageTask14If: Int = 5
+let ageTask14If = 7
 
 if ageTask14If > 3 && ageTask14If <= 6 {
     print("Go to kindergarten")
 }
-else if ageTask14If > 7 && ageTask14If <= 17 {
+else if ageTask14If >= 7 && ageTask14If <= 17 {
     print("Go to school")
 }
-else if ageTask14If > 18 && ageTask14If <= 22 {
+else if ageTask14If >= 18 && ageTask14If <= 22 {
     print("Go to university")
 }
-else if ageTask14If > 23 && ageTask14If <= 58 {
+else if ageTask14If >= 23 && ageTask14If <= 58 {
     print("Go to work")
 }
 else {
     print("Go to retirement")
 }
 
-let ageTask14Switch: Int = 78
+let ageTask14Switch = 78
 
 switch ageTask14Switch {
 case 3...6:
@@ -229,70 +226,52 @@ default:
 Task 15
 В switch и отдельно в if создать систему оценивания школьников по 12 бальной системе и высказывать через print мнение.
 */
-let markIf: Int = 3
+let markIf  = 3
 
 if markIf == 1 {
-    print("1")
+    print("Двоечник")
 }
 else if markIf == 2 {
-    print("2")
+    print("Двоечник")
 }
 else if markIf == 3 {
-    print("2+")
+    print("Двоечник")
 }
 else if markIf == 4 {
-    print("3-")
+    print("Двоечник")
 }
 else if markIf == 5 {
-    print("3")
+    print("Двоечник")
 }
 else if markIf == 6 {
-    print("3+")
+    print("Хорошист")
 }
 else if markIf == 7 {
-    print("4-")
+    print("Хорошист")
 }
 else if markIf == 8 {
-    print("4")
+    print("Хорошист")
 }
 else if markIf == 9 {
-    print("4+")
+    print("Хорошист")
 }
 else if markIf == 10 {
-    print("5-")
+    print("Отличник")
 }
 else if markIf == 11 {
-    print("5")
+    print("Отличник")
 }
 else {
-    print("5+")
+    print("Отличник")
 }
 
 let markSwitch: Int = 12
 
 switch markSwitch {
-case 1:
-    print("1")
-case 2:
-    print("2")
-case 3:
-    print("2+")
-case 4:
-    print("3-")
-case 5:
-    print("3")
-case 6:
-    print("3+")
-case 7:
-    print("4-")
-case 8:
-    print("4")
-case 9:
-    print("4+")
-case 10:
-    print("5-")
-case 11:
-    print("5")
+case 1, 2, 3, 4, 5:
+    print("Двоечник")
+case 6, 7, 8, 9:
+    print("Хорошист")
 default:
-    print("5+")
+    print("Отличник")
 }
