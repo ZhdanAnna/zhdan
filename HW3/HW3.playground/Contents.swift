@@ -14,12 +14,12 @@ printFullName("Anna", "Zhdan")
 /*
     2. Создайте функцию, которая принимает параметры и вычисляет площадь круга.
 */
-func areaOfCirlce(_ radius: Double, _ pi: Double = Double.pi) {
-    let area = radius * radius * pi
+func areaOfCircle(_ radius: Double) {
+    let area = radius * radius * Double.pi
     print(area)
 }
 
-areaOfCirlce(4)
+areaOfCircle(2)
 
 /*
     3. Создайте функцию, которая принимает параметры и вычисляет расстояние между двумя точками.
@@ -45,7 +45,7 @@ factorial(for: 4)
 /*
     5. Напишите функцию, которая вычисляет N-ое число Фибоначчи
 */
-func fibonacciNumber(for number: Int) {
+func calculateFibonacciNumber(number: Int) {
 var firstNumber = 1
 var nextValue = 0
     for _ in 0..<number {
@@ -56,7 +56,8 @@ var nextValue = 0
 print(nextValue)
 }
 
-fibonacciNumber(for: 4)
+calculateFibonacciNumber(number: 4)
+
 /*
     6. First, write the following function:
 
@@ -92,10 +93,13 @@ isNumberDivisible(3, by: 2)
 isNumberDivisible(5, by: 1)
 
 func isPrime(_ number: Int) -> Bool {
-    var counter = 0
+    
     guard number > 0 else {
         return false
     }
+    
+    var counter = 0
+    
     for num in 1...number {
         if isNumberDivisible(number, by: num) == true {
             counter += 1
