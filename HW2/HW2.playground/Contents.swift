@@ -34,8 +34,7 @@ repeat {
 Create a constant named range, and set it equal to a range starting at 1 and ending with 10 inclusive.
 Write a for loop that iterates over this range and prints the square of each number.
 */
-let range = 1...10
-for number in range {
+for number in 1...10 {
     print(number * number)
 }
 /*
@@ -71,13 +70,9 @@ Task 5
 
 Print a table of the first 10 powers of 2
 */
-let number = 2
-var power = 0
-var resultTask5 = 1
-for _ in 0...10 {
-    print("Число \(number) в степени \(power) = \(resultTask5)")
-    resultTask5 *= number
-    power += 1
+for power in 0...10 {
+    let resultTask5 = Int(pow(2, Double (power)))
+    print("Число 2 в степени \(power) = \(resultTask5)")
 }
 
 /*
@@ -226,51 +221,27 @@ default:
 Task 15
 В switch и отдельно в if создать систему оценивания школьников по 12 бальной системе и высказывать через print мнение.
 */
-let markIf  = 3
+let markIf  = 4
 
-if markIf == 1 {
+if markIf >= 1 && markIf <= 3 {
     print("Двоечник")
 }
-else if markIf == 2 {
-    print("Двоечник")
+else if markIf >= 4 && markIf <= 5 {
+    print("Троечник")
 }
-else if markIf == 3 {
-    print("Двоечник")
-}
-else if markIf == 4 {
-    print("Двоечник")
-}
-else if markIf == 5 {
-    print("Двоечник")
-}
-else if markIf == 6 {
+else if markIf >= 6 && markIf <= 9 {
     print("Хорошист")
 }
-else if markIf == 7 {
-    print("Хорошист")
-}
-else if markIf == 8 {
-    print("Хорошист")
-}
-else if markIf == 9 {
-    print("Хорошист")
-}
-else if markIf == 10 {
-    print("Отличник")
-}
-else if markIf == 11 {
-    print("Отличник")
-}
-else {
+else if markIf >= 10 && markIf <= 12 {
     print("Отличник")
 }
 
 let markSwitch: Int = 12
 
 switch markSwitch {
-case 1, 2, 3, 4, 5:
+case 1...5:
     print("Двоечник")
-case 6, 7, 8, 9:
+case 6...9:
     print("Хорошист")
 default:
     print("Отличник")
